@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="components/anchor-card/anchor-card.css">
+<webc-container shadow-root controller="components/AnchorCardController" data-view-model="@card">
+    <div class="anchor-card">
+        <div class="container" data-view-model="@background">
+            <div class="left-container">
+                <h3>{{@header}}</h3>
+                <p class="description">{{@description}}</p>
+                <div class="members">
+                    <img src="./assets/icons/members-vector.svg">
+                    <p>{{@memberCount}}</p>
+                </div>
+                <div class="anchor" data-tag="anchor-tag">
+                    <p>{{@anchorText}}</p>
+                    <img src="./assets/icons/arrow-vector.svg">
+                </div>
+            </div>
+
+            <div class="image-container">
+                <img data-tag="cardImage" data-view-model="@cardImage">
+            </div>
+        </div>
+    </div>
+</webc-container>

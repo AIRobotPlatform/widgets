@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="components/preview-card/preview-card.css">
+<webc-container controller="components/PreviewCardController" data-view-model="@card">
+    <div class="preview-card">
+        <div class="container" data-view-model="@background">
+            <div class="text-container">
+                {{@text}}
+            </div>
+
+            <div class="button-container">
+                <button class="tap-button" data-view-model="@buttonColor">Tap</button>
+            </div>
+
+        </div>
+
+</webc-container>
