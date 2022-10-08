@@ -2,8 +2,8 @@ const { WebcController } = WebCardinal.controllers;
 
 export default class RobotCardController extends WebcController {
     defaultValues = {
-        background: 'url(./AIRobotWidgets/assets/card-background.jpg)',
-        robotFace: './AIRobotWidgets/assets/robot-face.svg',
+        background: 'url(./AIRobotWidgets/components/assets/card-background.jpg)',
+        robotFace: './AIRobotWidgets/components/assets/robot-face.svg',
         robotBackground: '#6871EF',
     }
     constructor(...props) {
