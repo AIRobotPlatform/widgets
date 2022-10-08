@@ -7,9 +7,6 @@ export default class CarouselCardController extends WebcController {
         this.initCarouselListeners();
     }
 
-    initCarouselItems(){
-
-    }
     initCarouselListeners() {
         this.carouselContainer.addEventListener("mousedown", (e) => {
             this.carouselContainer.classList.toggle("grabbing", true);

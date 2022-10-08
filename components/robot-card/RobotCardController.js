@@ -2,9 +2,9 @@ const { WebcController } = WebCardinal.controllers;
 
 export default class RobotCardController extends WebcController {
     defaultValues = {
-        background: 'linear-gradient(130.29deg, rgba(220, 177, 246, 0.2) 30.01%, rgba(150, 165, 246, 0.2) 60.2%, rgba(104, 114, 238, 0.2) 78.17%, rgba(74, 160, 179, 0.2) 128.79%),linear-gradient(130.29deg, rgba(220, 177, 246, 0.2) 30.01%, rgba(150, 165, 246, 0.2) 60.2%, rgba(104, 114, 238, 0.2) 78.17%, rgba(74, 160, 179, 0.2) 128.79%)',
-        robotFace: './assets/icons/robot-face.png',
-        robotBackground: '#B6BCF8',
+        background: 'url(./AIRobotWidgets/assets/card-background.jpg)',
+        robotFace: './AIRobotWidgets/assets/robot-face.svg',
+        robotBackground: '#6871EF',
     }
     constructor(...props) {
         super(...props);

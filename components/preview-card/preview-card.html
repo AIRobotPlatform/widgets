@@ -1,5 +1,88 @@
-<link rel="stylesheet" href="components/preview-card/preview-card.css">
-<webc-container controller="components/PreviewCardController" data-view-model="@card">
+<style>
+    .container {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        height: 192px;
+        width: 100%;
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important;
+        align-items: center;
+        border-radius: 7px;
+    }
+
+    .text-container {
+        margin-left: 15px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.125rem;
+        line-height: 175%;
+        letter-spacing: 0.015em;
+        color: #FFFFFF;
+    }
+
+    .button-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .tap-button {
+        position: relative;
+        aspect-ratio: 1/1;
+        width: 72px;
+        border-radius: 50%;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.9rem;
+        line-height: 22px;
+        color: #FFFFFF;
+        border: none;
+    }
+
+
+    /* ANIMATION */
+
+    .tap-button:before,
+    .tap-button:after {
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 100%;
+        top: 0%;
+        left: 0%;
+        border-radius: 50%;
+        box-shadow: 0 0 15px #a29db0;
+        animation: glow-grow 2s ease-out infinite;
+    }
+
+    .tap-button:after {
+        animation-delay: 1s;
+    }
+
+    @keyframes glow-grow {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+
+        80% {
+            opacity: 0.2;
+        }
+
+        100% {
+            transform: scale(1.8);
+            opacity: 0;
+        }
+    }
+</style>
+<webc-container controller="PreviewCardController" data-view-model="@card">
     <div class="preview-card">
         <div class="container" data-view-model="@background">
             <div class="text-container">

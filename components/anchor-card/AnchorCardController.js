@@ -2,8 +2,8 @@ const { WebcController } = WebCardinal.controllers;
 
 export default class AnchorCardController extends WebcController {
     defaultValues = {
-        background: 'linear-gradient(130.29deg, rgba(220, 177, 246, 0.2) 30.01%, rgba(150, 165, 246, 0.2) 60.2%, rgba(104, 114, 238, 0.2) 78.17%, rgba(74, 160, 179, 0.2) 128.79%)',
-        cardImage: "./assets/icons/anchor-card-image.svg",
+        background: 'url(./AIRobotWidgets/assets/card-background.jpg)',
+        cardImage: "./AIRobotWidgets/assets/anchor-card-image.svg",
     }
     constructor(...props) {
         super(...props);
