@@ -1,0 +1,128 @@
+<style>
+    .chat-footer .footer-options {
+        height: 95px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        gap: 12px;
+
+    }
+
+    .chat-footer .footer-option {
+        background: white;
+        border-radius: 11px;
+        flex: 1 1 0;
+        width: 0;
+        height: 100%;
+        padding: 8px 13px;
+        position: relative;
+
+    }
+
+    .chat-footer .footer-option .title {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.8125rem;
+        line-height: 20px;
+        color: #000000;
+        margin-bottom: 15px;
+        word-spacing: 100vw;
+    }
+
+    .chat-footer .image-bottom {
+        position: absolute;
+        left: 13px;
+        bottom: 8px;
+        width: calc(100% - 2 * 13px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .chat-footer .image-bottom .arrow {
+        width: 10px;
+    }
+
+    .chat-footer .image-bottom .option-logo {
+        aspect-ratio: 1/1;
+        width: 20px;
+    }
+
+    .chat-footer .footer {
+        height: 40px;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .chat-footer .footer .chat-menu {
+        aspect-ratio: 1/1;
+        height: 100%;
+        margin-right: 7px;
+    }
+
+    .chat-footer .footer .chat-bar {
+        background: #FFFFFF;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        margin-right: 7px;
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .chat-footer .footer .chat-bar input {
+        justify-self: stretch;
+        overflow: hidden;
+        border: none;
+        border-radius: 20px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .chat-footer input:focus {
+        outline: none;
+    }
+
+    .chat-footer .footer .chat-bar img {
+        aspect-ratio: 1/1;
+        width: 20px;
+        margin: 0 15px;
+    }
+
+    .chat-footer .footer .send-message {
+        aspect-ratio: 1/1;
+        width: 22px;
+    }
+</style>
+
+
+
+<webc-container controller="ChatFooterController" data-view-model="@cards">
+    <div class="chat-footer">
+        <div class="footer-options" id="footer-options" data-for="@items">
+            <div class="footer-option" data-view-model="@dataTag">
+                <p class="title">{{@title}}</p>
+                <div class="image-bottom">
+                    <img src="./AIRobotWidgets/components/assets/purple-arrow.svg" class="arrow" alt="arrow">
+                    <img data-view-model="@photo" class="option-logo">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <img src="./AIRobotWidgets/components/assets/chat-menu.svg" alt="menu" class="chat-menu" data-tag="open-menu">
+            <div class="chat-bar">
+                <img src="./AIRobotWidgets/components/assets/chat-clip.svg" alt="clip" class="chat-clip" data-tag="add-file">
+                <input type="text" class="chat-message" data-tag="input" placeholder="Type what you want">
+                <img src="./AIRobotWidgets/components/assets/chat-emoji.svg" alt="emoticons" class="chat-emoji" data-tag="open-emoticons">
+            </div>
+            <img src="./AIRobotWidgets/components/assets/send-message.svg" alt="send-message" class="send-message" data-tag="send-message">
+        </div>
+    </div>
+
+</webc-container>

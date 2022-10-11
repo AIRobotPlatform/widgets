@@ -12,7 +12,7 @@
         background-size: 100% 100% !important;
     }
 
-    .container {
+    .anchor-card .container {
         display: grid;
         grid-template-columns: 1.2fr 1fr;
         height: 192px;
@@ -21,13 +21,13 @@
         overflow: hidden;
     }
 
-    .left-container {
+    .anchor-card .left-container {
         margin-left: 15px;
         overflow: hidden;
         margin-bottom: 20%;
     }
 
-    .left-container h3 {
+    .anchor-card .left-container h3 {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 400;
@@ -40,7 +40,7 @@
         text-overflow: ellipsis;
     }
 
-    .left-container .description {
+    .anchor-card .left-container .description {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
@@ -51,7 +51,7 @@
         margin-bottom: 5px;
     }
 
-    .left-container .members {
+    .anchor-card .left-container .members {
         display: flex;
         align-items: center;
         font-family: 'Poppins';
@@ -65,18 +65,18 @@
         white-space: nowrap;
     }
 
-    .left-container .members img {
+    .anchor-card .left-container .members img {
         aspect-ratio: 1/1;
         width: 15px;
         margin-right: 5px;
     }
 
-    .left-container .members p {
+    .anchor-card .left-container .members p {
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
-    .anchor {
+    .anchor-card .anchor {
         display: flex;
         align-items: center;
         font-family: 'Poppins';
@@ -94,19 +94,19 @@
 
     }
 
-    .anchor p {
+    .anchor-card .anchor p {
         overflow: hidden;
         text-overflow: ellipsis;
         width: 100%;
     }
 
-    .anchor img {
+    .anchor-card .anchor img {
         margin-left: 8px;
         aspect-ratio: 1/1;
         width: 12px;
     }
 
-    .image-container {
+    .anchor-card .image-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -115,18 +115,18 @@
         margin-bottom: 5%;
     }
 
-    .image-container img {
+    .anchor-card .image-container img {
         aspect-ratio: 1/1;
         max-width: 100%;
         width: 125px;
     }
 
-    img {
+    .anchor-card img {
         user-select: none;
         pointer-events: none;
     }
 </style>
-<webc-container shadow-root controller="AnchorCardController" data-view-model="@card">
+<webc-container controller="AnchorCardController" data-view-model="@card">
     <div class="anchor-card" data-view-model="@background">
         <div class="container">
             <div class="left-container">
@@ -145,7 +145,7 @@
         </div>
         <div class="anchor" data-tag="anchor-tag">
             <p>{{@anchorText}}</p>
-            <img src="./assets/icons/arrow-vector.svg">
+            <img src="./AIRobotWidgets/components/assets/arrow-vector.svg">
         </div>
     </div>
 </webc-container>

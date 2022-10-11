@@ -20,20 +20,22 @@
         user-select: none;
     }
 
-    .slider {
+    .slider-container .slider {
         display: flex;
         height: 100%;
     }
 
-    .slider-item:first-child {
+    .slider-container .slider-item:first-child {
         padding-left: 30px;
+        width: calc(100% - 30px);
     }
 
-    .slider-item:last-child {
+    .slider-container .slider-item:last-child {
         padding-right: 30px;
+        width: calc(100% - 30px);
     }
 
-    .slider-item {
+    .slider-container .slider-item {
         scroll-snap-align: center;
         margin-right: 16px;
         width: calc(100% - 60px);
@@ -42,16 +44,16 @@
         flex-shrink: 0;
     }
 
-    .grabbing {
+    .slider-container .grabbing {
         scroll-snap-type: none;
         scroll-behavior: auto;
         cursor: grabbing;
     }
 </style>
-<webc-container shadow-root controller="CarouselCardController" data-view-model="@card">
+<webc-container controller="CarouselCardController" data-view-model="@card">
     <div class="slider-container" data-tag="scroll-container">
         <div class="slider" data-tag="slider" data-for="@items">
-            <anchor-card shadow class="slider-item" data-view-model="@"></anchor-card>
+            <anchor-card class="slider-item" data-view-model="@"></anchor-card>
         </div>
     </div>
 </webc-container>

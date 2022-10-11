@@ -1,5 +1,5 @@
 <style>
-    div.container {
+    .robot-card .container {
         box-shadow: 0px 2px 9px rgba(203, 203, 203, 0.15);
         border-radius: 7px;
         display: grid;
@@ -9,7 +9,7 @@
         background-size: 100% 100% !important;
     }
 
-    div.messages-container {
+    .robot-card .messages-container {
         position: relative;
         left: -12px;
         top: calc(10% - 4px);
@@ -19,13 +19,13 @@
         flex-direction: column;
     }
 
-    .robot-face {
+    .robot-card .robot-face {
         aspect-ratio: 1/1;
         max-width: 90%;
         width: 125px;
     }
 
-    .img-container {
+    .robot-card .img-container {
         position: relative;
         aspect-ratio: 1/1;
         display: flex;
@@ -39,7 +39,7 @@
         overflow: hidden;
     }
 
-    .message {
+    .robot-card .message {
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.51);
         border-radius: 13px 13px 3px 13px;
         font-family: 'Poppins';
@@ -52,13 +52,13 @@
         margin-bottom: 10px;
     }
 
-    .message-animation {
+    .robot-card .message-animation {
         animation: message 0.3s ease-out 0s forwards;
         transform: scale(0);
         transform-origin: 100% 100%;
     }
 
-    .remove-message-animation {
+    .robot-card .remove-message-animation {
         animation: removemessage 0.3s ease-out 0s forwards;
         transform-origin: 100% 50%;
     }
@@ -92,35 +92,35 @@
     }
 
     @media only screen and (max-width: 359px) {
-        .message {
+        .robot-card .message {
             font-size: 1.05rem;
         }
     }
 
     @media only screen and (max-width: 349px) {
-        .message {
+        .robot-card .message {
             font-size: 1rem;
         }
     }
 
     @media only screen and (max-width: 339px) {
-        .message {
+        .robot-card .message {
             font-size: 0.9rem;
         }
 
-        .robot-face {
+        .robot-card .robot-face {
             width: 100px;
         }
     }
 
     @media only screen and (max-width: 319px) {
-        .message {
+        .robot-card .message {
             font-size: 0.85rem;
         }
     }
 
     @media only screen and (max-width: 300px) {
-        .message {
+        .robot-card .message {
             font-size: 0.8rem;
         }
     }
