@@ -7,6 +7,7 @@ export default class AnchorCardController extends WebcController {
     }
     constructor(...props) {
         super(...props);
+        console.log(JSON.stringify(this.model))
         this.model = {
             background: {
                 style: `background:${this.model.background || this.defaultValues.background}`

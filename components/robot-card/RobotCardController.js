@@ -4,7 +4,7 @@ export default class RobotCardController extends WebcController {
     defaultValues = {
         background: 'url(./AIRobotWidgets/components/assets/card-background.jpg)',
         robotFace: './AIRobotWidgets/components/assets/robot-face.svg',
-        robotBackground: '#6871EF',
+        textBackground: '#6871EF',
     }
     constructor(...props) {
         super(...props);
@@ -14,7 +14,7 @@ export default class RobotCardController extends WebcController {
     }
 
     initializeModel() {
-        
+
         this.model = {
             background: {
                 style: `background:${this.model.background || this.defaultValues.background}`
@@ -22,16 +22,13 @@ export default class RobotCardController extends WebcController {
             robotFace: {
                 src: this.model.robotFace || this.defaultValues.robotFace
             },
-            robotBackground: {
-                style: `background:${this.model.robotBackground || this.defaultValues.robotBackground}`
-            }
+            textBackground: `${this.model.textBackground || this.defaultValues.textBackground}`,
+
+
         };
-        if(this.model.arrayMessage===undefined){
+        if (this.model.arrayMessage === undefined) {
             console.log("Please bind the message array");
-            this.model.arrayMessage=[];
-        }
-        if (this.model.textBackground === undefined) {
-            this.model.textBackground = this.defaultValues.robotBackground;
+            this.model.arrayMessage = [];
         }
 
     }
