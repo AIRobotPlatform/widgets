@@ -7,7 +7,11 @@ export default class AnchorCardController extends WebcController {
     }
     constructor(...props) {
         super(...props);
-        console.log(JSON.stringify(this.model))
+        this.injectedProperties = this.element.parentElement?.injectedProperties;
+        // this.element.setAttribute('instantiate','');
+        if (this.injectedProperties) {
+            this.model = this.injectedProperties;
+        }
         this.model = {
             background: {
                 style: `background:${this.model.background || this.defaultValues.background}`

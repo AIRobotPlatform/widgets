@@ -1,10 +1,10 @@
 const { WebcController } = WebCardinal.controllers;
 
-export default class PreviewCardController extends WebcController {
+export default class PreviewCardController2 extends WebcController {
     defaultValues = {
-        background: 'url(./AIRobotWidgets/components/assets/map-preview.png)',
-        buttonColor: 'linear-gradient(0deg, rgba(66, 59, 183, 0.29), rgba(66, 59, 183, 0.29)), linear-gradient(107.45deg, #6EB2F7 -2.29%, #6661EC 92.25%, #697FEF 187.08%)',
-        buttonText:'Tap'
+        background: 'url(./AIRobotWidgets/components/assets/card-preview2.svg)',
+        buttonColor: '#4CBC79',
+        buttonText:'Vezi harta'
     }
     constructor(...props) {
         super(...props);
@@ -18,6 +18,15 @@ export default class PreviewCardController extends WebcController {
                 html:this.model.buttonText||this.defaultValues.buttonText,
             },
         };
+        if(this.model.type=='large'){
+            this.getElementByTag('preview-card').classList.add('type2');
+        }
+        else if(this.model.type=='large2'){
+            this.getElementByTag('preview-card').classList.add('type3');
+        }
+        else {
+            this.getElementByTag('preview-card').classList.add('type1');
+        }
         this.eventListeners();
     }
 

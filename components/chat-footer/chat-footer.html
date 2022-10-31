@@ -1,24 +1,50 @@
 <style>
-    .chat-footer .footer-options {
-        height: 95px;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 10px;
-        gap: 12px;
+    * {
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        scrollbar-width: none;
+        /* Firefox */
+    }
 
+    *::-webkit-scrollbar {
+        display: none;
+        /* Safari and Chrome */
+    }
+
+    .slider-container {
+        width: 100%;
+        overflow-x: auto;
+        user-select: none;
+    }
+
+    .slider-container .slider {
+        display: flex;
+        height: 100%;
+    }
+
+    .slider-container .slider-item {
+        scroll-snap-align: center;
+        margin-right: 16px;
+        height: 100%;
+        flex-shrink: 0;
+    }
+
+    .slider-container .slider-item:first-child {
+        margin-left: 10px;
+    }
+
+    .chat-footer .footer-options {
+        height: 85px;
+        margin-bottom: 20px;
     }
 
     .chat-footer .footer-option {
         background: white;
         border-radius: 11px;
-        flex: 1 1 0;
-        width: 0;
         height: 100%;
         padding: 8px 13px;
         position: relative;
-
+        width: 107px;
     }
 
     .chat-footer .footer-option .title {
@@ -153,7 +179,7 @@
     .chat-footer .emoji-category img {
         overflow: hidden;
         aspect-ratio: 1/1;
-        height:20px;
+        height: 20px;
     }
 
     .chat-footer .emoji-container .emoji {
@@ -173,28 +199,29 @@
 </style>
 
 
-
-<webc-container controller="ChatFooterController" data-view-model="@cards">
+<webc-container controller="ChatFooterController" data-view-model="@">
     <div class="chat-footer">
-        <div class="footer-options" id="footer-options" data-for="@items">
-            <div class="footer-option" data-view-model="@dataTag">
-                <p class="title">{{@title}}</p>
-                <div class="image-bottom">
-                    <img src="./AIRobotWidgets/components/assets/purple-arrow.svg" class="arrow" alt="arrow">
-                    <img data-view-model="@photo" class="option-logo">
+        <div class="slider-container" data-tag="scroll-container">
+            <div class="footer-options slider" data-tag="slider" id="footer-options" data-for="@items">
+                <div class="footer-option slider-item" data-view-model="@dataTag">
+                    <p class="title">{{@title}}</p>
+                    <div class="image-bottom">
+                        <img src="./AIRobotWidgets/components/assets/purple-arrow.svg" class="arrow" alt="arrow">
+                        <img data-view-model="@photo" class="option-logo">
+                    </div>
                 </div>
             </div>
         </div>
         <div class="footer">
             <img src="./AIRobotWidgets/components/assets/chat-menu.svg" alt="menu" class="chat-menu"
-                data-tag="open-menu">
+                 data-tag="open-menu">
             <div class="chat-bar">
                 <img src="./AIRobotWidgets/components/assets/chat-clip.svg" alt="clip" class="chat-clip"
-                    data-tag="add-file">
+                     data-tag="add-file">
                 <input type="text" class="chat-message" data-tag="input" placeholder="Type what you want">
                 <div class="emoji-button">
                     <img src="./AIRobotWidgets/components/assets/chat-emoji.svg" alt="emoticons" class="chat-emoji"
-                        data-tag="open-emoticons">
+                         data-tag="open-emoticons">
                 </div>
             </div>
             <div class="emoji-menu hidden" data-tag="emoji-menu">
@@ -203,22 +230,22 @@
                 </div>
                 <div class="emoji-category" id="emoji-category">
                     <img src="./AIRobotWidgets/components/assets/emoji-people.svg" alt="People"
-                        data-tag="category-people">
+                         data-tag="category-people">
                     <img src="./AIRobotWidgets/components/assets/emoji-nature.svg" alt="Nature"
-                        data-tag="category-nature">
+                         data-tag="category-nature">
                     <img src="./AIRobotWidgets/components/assets/emoji-food.svg" alt="Food" data-tag="category-food">
                     <img src="./AIRobotWidgets/components/assets/emoji-activity.svg" alt="Activity"
-                        data-tag="category-activity">
+                         data-tag="category-activity">
                     <img src="./AIRobotWidgets/components/assets/emoji-travel.svg" alt="Travel"
-                        data-tag="category-travel">
+                         data-tag="category-travel">
                     <img src="./AIRobotWidgets/components/assets/emoji-objects.svg" alt="Objects"
-                        data-tag="category-objects">
+                         data-tag="category-objects">
                     <img src="./AIRobotWidgets/components/assets/emoji-symbols.svg" alt="Symbols"
-                        data-tag="category-symbols">
+                         data-tag="category-symbols">
                 </div>
             </div>
             <img src="./AIRobotWidgets/components/assets/send-message.svg" alt="send-message" class="send-message"
-                data-tag="send-message">
+                 data-tag="send-message">
         </div>
     </div>
 

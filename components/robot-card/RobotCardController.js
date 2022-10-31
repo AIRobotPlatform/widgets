@@ -31,6 +31,14 @@ export default class RobotCardController extends WebcController {
             this.model.arrayMessage = [];
         }
 
+        if(this.model.messagesOverflow){
+            document.querySelector("#messages-container").classList.add('overflow');
+        }
+
+        if(this.model.isCircleShape){
+            document.querySelector("#robot-face").classList.add('circle');
+        }
+
     }
     initializeMessage() {
         const messageContainer = this.getElementByTag("message-container");

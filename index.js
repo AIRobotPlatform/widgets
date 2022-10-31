@@ -4,6 +4,8 @@ import PreviewCardController from "./components/preview-card/PreviewCardControll
 import RobotCardController from "./components/robot-card/RobotCardController.js";
 import ChatFooterController from "./components/chat-footer/ChatFooterController.js";
 import ChatMessagesController from "./components/chat-messages/ChatMessagesController.js"
+import PreviewCardController2 from "./components/preview-card2/PreviewCardController2.js";
+import PhotoWithTextController from "./components/photo-with-text/PhotoWithTextController.js"
 
 
 let { controllers, components } = window.WebCardinal;
@@ -13,6 +15,8 @@ controllers["PreviewCardController"]=PreviewCardController;
 controllers["RobotCardController"]=RobotCardController;
 controllers["ChatFooterController"]=ChatFooterController;
 controllers["ChatMessagesController"]=ChatMessagesController;
+controllers["PreviewCardController2"]=PreviewCardController2;
+controllers["PhotoWithTextController"]=PhotoWithTextController;
 
 
 
@@ -20,5 +24,7 @@ components.define('anchor-card', '/AIRobotWidgets/components/anchor-card/anchor-
 components.define('robot-card','/AIRobotWidgets/components/robot-card/robot-card');
 components.define('carousel-card','/AIRobotWidgets/components/carousel-card/carousel-card');
 components.define('preview-card','/AIRobotWidgets/components/preview-card/preview-card');
+components.define('preview-card2','/AIRobotWidgets/components/preview-card2/preview-card2');
 components.define('chat-footer','/AIRobotWidgets/components/chat-footer/chat-footer');
 components.define('chat-messages','/AIRobotWidgets/components/chat-messages/chat-messages');
+components.define('photo-with-text','/AIRobotWidgets/components/photo-with-text/photo-with-text');

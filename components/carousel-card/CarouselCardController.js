@@ -1,20 +1,28 @@
 const { WebcController } = WebCardinal.controllers;
-
 export default class CarouselCardController extends WebcController {
     constructor(...props) {
         super(...props);
         this.carouselContainer = this.getElementByTag("scroll-container");
         this.initCarouselListeners();
-        this.addCarouselChildrens();
+        this.setCarouselType();
+        setTimeout(()=>{this.addCarouselChildrens();});
     }
 
+
+    setCarouselType(){
+        if(this.model.type==='big'){
+            this.getElementByTag('scroll-container').classList.add('big');
+        }
+    }
     addCarouselChildrens(){
         const parent=this.getElementByTag("slider");
-        this.model.items.forEach(item=>{
-            const newChild=document.createElement(item.type);
-            newChild.setAttribute("data-view-model",'@this.model')
-            parent.appendChild(newChild);
-        })
+        let childrens=[]
+        this.model.items.forEach((item)=>{
+            const newChild = this.createElement(item.type,{injectedProperties:item.model});
+            newChild.classList.add('slider-item');
+            childrens.push(newChild);
+        });
+        parent.append(...childrens);
     }
     initCarouselListeners() {
         this.carouselContainer.addEventListener("mousedown", (e) => {
@@ -34,4 +42,6 @@ export default class CarouselCardController extends WebcController {
             }
         });
     }
+
+    
 }

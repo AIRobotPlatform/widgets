@@ -4,6 +4,7 @@ export default class ChatFooterController extends WebcController {
     timer;
     constructor(...props) {
         super(...props);
+        this.carouselContainer = this.getElementByTag("scroll-container");
         this.model.emojis = emojis;
         setTimeout(() => {
             this.setNavigateTag(),
@@ -12,6 +13,7 @@ export default class ChatFooterController extends WebcController {
         }, 0);
         this.sendMessage();
         this.initializeEventListeners();
+        this.initCarouselListeners();
 
     }
 
@@ -75,29 +77,25 @@ export default class ChatFooterController extends WebcController {
         this.onTagClick("open-emoticons", () => {
             this.getElementByTag("emoji-menu").classList.toggle("hidden");
         })
-        document.querySelector("#search-emoji").addEventListener('keyup', (e) => {
-            const searched = e.currentTarget.value.toLowerCase();
-            clearTimeout(this.timer);
-            this.timer = setTimeout(() => {
-                this.filterEmojis(searched);
-            }, 200);
-        });
     }
-    filterEmojis(searched) {
-        this.model.emojis = emojis.filter(emoji => {
-            emoji.keywords.forEach(keyword => {
-                if (keyword.toLowerCase().includes(searched)) {
-                    return true;
-                }
-            })
-            if (emoji.name.toLowerCase().includes(searched)) {
-                return true;
+
+    initCarouselListeners() {
+        this.carouselContainer.addEventListener("mousedown", (e) => {
+            this.carouselContainer.classList.toggle("grabbing", true);
+            this.scrollLeft = this.carouselContainer.scrollLeft;
+            this.userX = e.clientX;
+
+            document.onmousemove = (e) => {
+                const dx = e.clientX - this.userX;
+                this.carouselContainer.scrollLeft = this.scrollLeft - dx;
             }
-            if (emoji.shortname.toLowerCase().includes(searched)) {
-                return true;
+            document.onmouseup = () => {
+                document.onmousemove = null;
+                document.onmouseup = null;
+                this.carouselContainer.classList.toggle("grabbing", false);
+                this.carouselContainer.scrollLeft += 1;
             }
-            return false;
-        })
+        });
     }
 
 }

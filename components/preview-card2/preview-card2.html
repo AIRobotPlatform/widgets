@@ -1,0 +1,100 @@
+<style>
+    .preview-card .container {
+        overflow: hidden;
+        position:relative;
+        width: 100%;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        border-radius: 7px;
+    }
+
+    .preview-card .text {
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.015em;
+        color: #35210E;
+    }
+    .preview-card .button-container {
+        height:36px;
+        display: flex;
+        align-items: center;
+    }
+
+    .preview-card .tap-button {
+        height:100%;
+        padding:0 15px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 175%;
+        letter-spacing: 0.015em;
+        color: #FFFFFF;
+        border: none;
+        white-space: nowrap;
+    }
+
+    .preview-card.type1 .container {
+        height: 118px;
+    }
+    .preview-card.type1  .informations{
+        margin:20px 0 20px 15px;
+        height:calc(100% - 40px);
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .preview-card.type1 .tap-button{
+        border-radius: 7px;
+    }
+    .preview-card.type2 .container,.preview-card.type3 .container{
+        height: 192px;
+    }
+    .preview-card.type2  .informations{
+        position: absolute;
+        bottom:0;
+        left:0;
+        display:flex;
+        align-items: center;
+        height:36px;
+        width:100%;
+        background: rgba(255, 255, 255, 0.87);
+        justify-content: space-between;
+        border-radius: 0 0 7px 7px;
+    }
+    .preview-card.type2 .text,
+    .preview-card.type3 .text{
+        margin-left:10px;
+    }
+
+    .preview-card.type2 .tap-button{
+        border-radius: 0px 0px 7px 0px;
+        height:100%;
+    }
+
+    .preview-card.type3  .informations{
+        background:white;
+        position: absolute;
+        bottom:12px;
+        left:8%;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        height:36px;
+        width:84%;
+        border-radius: 7px;
+        overflow:hidden;
+    }
+</style>
+<webc-container controller="PreviewCardController2" data-view-model="@">
+    <div data-tag='preview-card' class="preview-card">
+        <div class="container" data-view-model="@background">
+            <div class="informations">
+                <span class="text">{{@text}}</span>
+                <div class="button-container">
+                    <button class="tap-button" data-view-model="@button"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</webc-container>
