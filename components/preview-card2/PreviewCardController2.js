@@ -1,11 +1,24 @@
-const { WebcController } = WebCardinal.controllers;
+/*
+previewCard: {
+                text: "text",
+                background:'url(image.svg)',
+                buttonColor:'white',
+                buttonText:'Tap'
+                navigateTo:'name-tag'
+                type:'small','large','large2'
+                Default-ul pentru type e small.
+            },
+ */
+
+const {WebcController} = WebCardinal.controllers;
 
 export default class PreviewCardController2 extends WebcController {
     defaultValues = {
         background: 'url(./AIRobotWidgets/components/assets/card-preview2.svg)',
         buttonColor: '#4CBC79',
-        buttonText:'Vezi harta'
+        buttonText: 'Vezi harta'
     }
+
     constructor(...props) {
         super(...props);
         this.model = {
@@ -15,16 +28,14 @@ export default class PreviewCardController2 extends WebcController {
             button: {
                 tag: "tap-button",
                 style: `background:${this.model.buttonColor || this.defaultValues.buttonColor}`,
-                html:this.model.buttonText||this.defaultValues.buttonText,
+                html: this.model.buttonText || this.defaultValues.buttonText,
             },
         };
-        if(this.model.type=='large'){
+        if (this.model.type == 'large') {
             this.getElementByTag('preview-card').classList.add('type2');
-        }
-        else if(this.model.type=='large2'){
+        } else if (this.model.type == 'large2') {
             this.getElementByTag('preview-card').classList.add('type3');
-        }
-        else {
+        } else {
             this.getElementByTag('preview-card').classList.add('type1');
         }
         this.eventListeners();

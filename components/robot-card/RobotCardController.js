@@ -1,3 +1,13 @@
+/*
+robotCard: {
+                arrayMessage: Array with messages,
+                background: 'url(image.svg)',--or color
+                robotFace:'robot.svg',
+                textBackground:'#6871EF',-- or url
+                messageOverflow:false,--setat pe true mesajele o sa iasa din container
+                isCircleShape:true,--cand forma robotului este dreptunghiulara trebuie setat pe false
+            },
+ */
 const { WebcController } = WebCardinal.controllers;
 
 export default class RobotCardController extends WebcController {
@@ -14,7 +24,6 @@ export default class RobotCardController extends WebcController {
     }
 
     initializeModel() {
-
         this.model = {
             background: {
                 style: `background:${this.model.background || this.defaultValues.background}`
@@ -40,6 +49,7 @@ export default class RobotCardController extends WebcController {
         }
 
     }
+    //Daca sunt mesaje in array-ul trimis initial trebuie sa le afisam.
     initializeMessage() {
         const messageContainer = this.getElementByTag("message-container");
         this.model.arrayMessage.forEach(m => {
@@ -50,6 +60,7 @@ export default class RobotCardController extends WebcController {
             messageContainer.appendChild(message)
         })
     }
+    //Afiseaza mesajele cand le primeste
     setEventListeners() {
         this.model.onChange("arrayMessage", () => {
             const messageContainer = this.getElementByTag("message-container");

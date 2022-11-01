@@ -1,7 +1,31 @@
-const { WebcController } = WebCardinal.controllers;
-import { emojis } from "./emoji_json.js";
+/*
+    Componenta primeste doar un array de obiecte pentru a le adauga in caruselul de deasupra chat-ului.
+    footerModel: {
+        items: [
+          {
+            title: 'Explore map',
+            photo: { src: './AIRobotWidgets/components/assets/explore-map-logo.svg' },
+            dataTag: {
+              tag: 'explore',
+            }
+          },
+          {
+            title: 'Add NFT',
+            photo: { src: './AIRobotWidgets/components/assets/add-nft-logo.svg' },
+            dataTag: {
+              tag: 'upload',
+            }
+          },
+          ......
+ */
+
+
+const {WebcController} = WebCardinal.controllers;
+import {emojis} from "./emoji_json.js";
+
 export default class ChatFooterController extends WebcController {
     timer;
+
     constructor(...props) {
         super(...props);
         this.carouselContainer = this.getElementByTag("scroll-container");
@@ -50,10 +74,9 @@ export default class ChatFooterController extends WebcController {
                 const categoryElement = this.model.emojis.find(emoji => {
                     return emoji.category.toLowerCase() === myCategory.toLowerCase();
                 })
-                try{
-                    this.getElementByTag(categoryElement.model.tag).scrollIntoView(true, { behaviour: "smooth" });
-                }
-                catch(err){
+                try {
+                    this.getElementByTag(categoryElement.model.tag).scrollIntoView(true, {behaviour: "smooth"});
+                } catch (err) {
                     // console.log("No element selected///probably because search input isnt empty")
                 }
             })
@@ -66,8 +89,8 @@ export default class ChatFooterController extends WebcController {
             const messageToBeSend = inputElement.value;
             inputElement.value = ''
             if (messageToBeSend !== '') {
-                const eventDetail = { 'message': messageToBeSend }
-                this.element.dispatchEvent(new CustomEvent("messageSent", { detail: eventDetail }));
+                const eventDetail = {'message': messageToBeSend}
+                this.element.dispatchEvent(new CustomEvent("messageSent", {detail: eventDetail}));
             }
 
         })

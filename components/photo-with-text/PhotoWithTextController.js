@@ -1,3 +1,14 @@
+/*Pentru ca avem bug pe data-binding in webcardinal, pana o sa fie rezolvat, componenta asta
+poate fi utilizata doar in carusel sau doar in afara. Daca vrem sa o folosim ca o componenta simpla,
+trebuie sa adaugam data-view-model="@" pe <webc-container>.
+
+
+model : {
+            background: url(image.svg) sau culoare
+            cardImage: "image.svg"
+            navigateTo: tag - ul paginii pe care vrei sa ajungi cand apesi pe componenta
+        }
+*/
 const { WebcController } = WebCardinal.controllers;
 
 export default class PhotoWithNameController extends WebcController {

@@ -1,3 +1,14 @@
+/*
+previewCard: {
+                text: "text",
+                background:'url(image.svg)',
+                buttonColor:'white',
+                buttonText:'Tap'
+                navigateTo:name-tag
+            },
+ */
+
+
 const { WebcController } = WebCardinal.controllers;
 
 export default class PreviewCardController extends WebcController {
