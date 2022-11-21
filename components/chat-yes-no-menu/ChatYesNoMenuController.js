@@ -7,7 +7,10 @@ export default class ChatYesNoMenuController extends WebcController {
     constructor(...props) {
         super(...props);
         this.model.button = { style: `background:${this.model.background || this.defaultValues.buttonColor}` }
-
-        console.log("pagina mea");
+        setTimeout(() => this.initEventListeners(), 500);
+    }
+    initEventListeners() {
+        document.querySelector("#yes").onclick = () => this.model.action("yes");
+        document.querySelector("#no").onclick = () => this.model.action("no");
     }
 }

@@ -72,9 +72,9 @@
 
 
 
-<webc-container  controller="ChatMessagesController" data-view-model="@chatMessage">
+<webc-container controller="ChatMessagesController" data-view-model="@chatMessage">
     <div class="chat-messages">
-        <webc-datatable class="container" datasource="@messageDataSource">
+        <webc-datatable id="messages-container" class="container" datasource="@messageDataSource">
             <container data-if="@myMessage">
                 <div slot="true" class="message my-message">
 

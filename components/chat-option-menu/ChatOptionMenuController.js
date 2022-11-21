@@ -8,7 +8,7 @@ export default class ChatOptionMenuController extends WebcController {
     initEventListeners() {
         const options = document.querySelectorAll(".option");
         options.forEach((option, index) => {
-            option.onclick = this.model.options[index].action;
+            option.onclick = () => this.model.action(index);
         })
     }
 }

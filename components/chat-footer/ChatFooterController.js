@@ -7,13 +7,13 @@ export default class ChatFooterController extends WebcController {
         this.carouselContainer = this.getElementByTag("scroll-container");
         this.model.emojis = emojis;
         setTimeout(() => {
-            this.setNavigateTag(),
+            //this.setNavigateTag(),
                 this.setEmojiTag()
             this.setCategoryTag();
         }, 0);
         this.sendMessage();
         this.initializeEventListeners();
-        this.initCarouselListeners();
+       // this.initCarouselListeners();
 
     }
 
