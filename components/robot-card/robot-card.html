@@ -1,16 +1,35 @@
 <style>
-    .robot-card .container {
+    .robot-card {
+        position: relative;
+        /* display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         box-shadow: 0px 2px 9px rgba(203, 203, 203, 0.15);
-        border-radius: 7px;
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important; */
+    }
+
+    .robot-card .robot-card-container {
         display: grid;
         grid-template-columns: 1.2fr 1fr;
-        height: 192px;
+        border-radius: 7px;
+        box-shadow: 0px 2px 9px rgba(203, 203, 203, 0.15);
         background-repeat: no-repeat !important;
         background-size: 100% 100% !important;
+        border-radius: 7px;
+        padding-top: 14px;
+        padding-bottom: 75px;
+    }
+
+    .robot-card card-info-strip {
+        position: absolute;
+        height: 50px;
+        bottom: 11px;
+        width: 100%;
     }
 
     .robot-card .messages-container {
-        margin-left:7px;
+        margin-left: 7px;
         height: 117px;
         display: flex;
         justify-content: end;
@@ -18,21 +37,22 @@
         align-self: center;
     }
 
-    .robot-card .messages-container.overflow{
-        margin-left:0px;
+    .robot-card .messages-container.overflow {
+        margin-left: 0px;
         position: relative;
         left: -12px;
     }
-    .robot-card .robot-face{
+
+    .robot-card .robot-face {
         max-width: 100%;
         max-height: 100%;
         width: 110px;
-        height:142px;
+        height: 142px;
     }
 
-    .robot-card .robot-face.circle{
+    .robot-card .robot-face.circle {
         aspect-ratio: 1/1;
-        height:auto;
+        height: auto;
     }
 
     .robot-card .img-container {
@@ -123,11 +143,12 @@
 </style>
 <webc-container controller="RobotCardController" data-view-model="@">
     <div class="robot-card">
-        <div class="container" data-view-model="@background">
+        <div class="robot-card-container" data-view-model="@background">
             <div class="messages-container" id="messages-container" data-tag="message-container"></div>
             <div class="img-container" data-view-model="@robotBackground">
                 <img class="robot-face" id="robot-face" data-view-model="@robotFace">
             </div>
         </div>
-
+        <card-info-strip data-view-model="@cardInfoStrip"></card-info-strip>
+    </div>
 </webc-container>
