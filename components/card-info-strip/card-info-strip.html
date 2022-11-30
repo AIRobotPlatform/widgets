@@ -1,0 +1,63 @@
+<style>
+    .card-info-strip .container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        background: #FFFFFF;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .card-info-strip .text-container {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Poppins';
+        font-style: normal;
+        text-transform: capitalize;
+        color: #0D552A;
+    }
+
+    .card-info-strip .header {
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.015em;
+        line-height: 175%;
+    }
+
+    .card-info-strip .text {
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 175%;
+    }
+
+    .card-info-strip .button-container {
+        background: #0D552A;
+        border-radius: 50% 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .card-info-strip .button-container img {
+        max-height: 40%;
+    }
+</style>
+
+<webc-container controller="CardInfoStripController" data-view-model="@">
+    <div data-tag='card-info-strip' class="card-info-strip">
+        <div class="container">
+            <div class="text-container">
+                <div class="header">{{@header}}</div>
+                <div class="text">{{@description}}</div>
+            </div>
+            <div class="button-container" data-tag="tap-button">
+                <img src="./AIRobotWidgets/components/assets/arrow-vector.svg">
+            </div>
+        </div>
+    </div>
+</webc-container>
