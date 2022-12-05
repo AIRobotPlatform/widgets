@@ -11,9 +11,23 @@ export default class ChatFooterController extends WebcController {
             this.setEmojiTag()
             this.setCategoryTag();
         }, 0);
+        this.sendMessage();
         this.initializeEventListeners();
         // this.initCarouselListeners();
 
+    }
+
+    sendMessage() {
+        this.onTagClick("send-message", () => {
+            const inputElement = this.getElementByTag('input');
+            const messageToBeSend = inputElement.value;
+            inputElement.value = ''
+            if (messageToBeSend !== '') {
+                const eventDetail = { 'message': messageToBeSend }
+                this.element.dispatchEvent(new CustomEvent("messageSent", { detail: eventDetail }));
+            }
+
+        })
     }
 
     setNavigateTag() {
