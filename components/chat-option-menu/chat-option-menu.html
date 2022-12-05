@@ -1,50 +1,38 @@
 <style>
-    .chat-options .message {
-        position: relative;
-        border-radius: 11px;
-        min-height: 35px;
-        margin: 0 25px 10px;
-        padding: 0 10px;
-        z-index: 1;
-    }
-
-    .chat-options .their-message {
-        background: white;
-    }
-
-    .chat-options .their-message:after {
-        transform: rotate(320deg);
-        width: 26px;
-        background-color: white;
-        position: absolute;
-        bottom: -1px;
-        height: 11px;
-        content: '';
-        left: -10px;
-        border-bottom-left-radius: 37px;
-        z-index: 0;
-    }
-
-    .chat-options .message .option {
+    .chat-options .options-container .option {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 400;
-        text-decoration: underline;
         font-size: 0.875rem;
         line-height: 35px;
-        color: blue;
+        color: #4CBC79;
         width: calc(100% - 25px);
         position: relative;
-        z-index: 2;
+        z-index: 100;
+
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 11px;
+        width: 80%;
+        height: 33px;
+        margin-bottom: 9px;
     }
+    .options-container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 </style>
 
 
 
 <webc-container controller="ChatOptionMenuController" data-view-model="@">
     <div class="chat-options">
-        <div class="message their-message" data-for="@options">
-            <p class="option">{{@name}}</p>
+        <div class="options-container" data-for="@options">
+            <p class="option" align="center">{{@name}}</p>
         </div>
     </div>
 </webc-container>

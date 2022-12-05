@@ -2,7 +2,7 @@ const { WebcController } = WebCardinal.controllers;
 
 export default class ChatYesNoMenuController extends WebcController {
     defaultValues = {
-        buttonColor: '#4CBC79'
+        buttonColor: '#FFFFFF'
     }
     constructor(...props) {
         super(...props);
