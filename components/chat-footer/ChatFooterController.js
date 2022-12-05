@@ -8,12 +8,11 @@ export default class ChatFooterController extends WebcController {
         this.model.emojis = emojis;
         setTimeout(() => {
             //this.setNavigateTag(),
-                this.setEmojiTag()
+            this.setEmojiTag()
             this.setCategoryTag();
         }, 0);
-        this.sendMessage();
         this.initializeEventListeners();
-       // this.initCarouselListeners();
+        // this.initCarouselListeners();
 
     }
 
@@ -50,18 +49,19 @@ export default class ChatFooterController extends WebcController {
                 const categoryElement = this.model.emojis.find(emoji => {
                     return emoji.category.toLowerCase() === myCategory.toLowerCase();
                 })
-                try{
+                try {
                     this.getElementByTag(categoryElement.model.tag).scrollIntoView(true, { behaviour: "smooth" });
                 }
-                catch(err){
+                catch (err) {
                     // console.log("No element selected///probably because search input isnt empty")
                 }
             })
         })
     }
 
-    sendMessage() {
-        this.onTagClick("send-message", () => {
+    handleKeyPress(e) {
+        var key = e.keyCode || e.which;
+        if (key == 13) {
             const inputElement = this.getElementByTag('input');
             const messageToBeSend = inputElement.value;
             inputElement.value = ''
@@ -69,14 +69,16 @@ export default class ChatFooterController extends WebcController {
                 const eventDetail = { 'message': messageToBeSend }
                 this.element.dispatchEvent(new CustomEvent("messageSent", { detail: eventDetail }));
             }
-
-        })
+        }
     }
 
     initializeEventListeners() {
         this.onTagClick("open-emoticons", () => {
             this.getElementByTag("emoji-menu").classList.toggle("hidden");
         })
+        this.getElementByTag('input').addEventListener("keydown",
+            (event) => this.handleKeyPress(event))
+
     }
 
     initCarouselListeners() {
