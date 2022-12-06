@@ -15,6 +15,7 @@ export default class ChatOptionMenuController extends WebcController {
             option.onclick = () => {
                 this.model.action(index);
                 document.querySelector('.chat-page').style.setProperty('--height', messagesHeight + "px")
+                setTimeout(() => document.querySelector("ion-content").scrollToBottom(), 100);
             };
         })
         document.querySelector('.chat-page').style.setProperty('--height', height)
