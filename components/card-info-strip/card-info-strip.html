@@ -50,12 +50,12 @@
 
 <webc-container controller="CardInfoStripController" data-view-model="@">
     <div data-tag='card-info-strip' class="card-info-strip">
-        <div class="container">
+        <div class="container" data-tag="tap-button">
             <div class="text-container">
                 <div class="header">{{@header}}</div>
                 <div class="text">{{@description}}</div>
             </div>
-            <div class="button-container" data-tag="tap-button">
+            <div class="button-container">
                 <img src="./AIRobotWidgets/components/assets/arrow-vector.svg">
             </div>
         </div>

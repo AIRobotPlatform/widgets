@@ -1,0 +1,127 @@
+<style>
+    .chat-options {
+        width: 100%;
+        background: #FFFFFF;
+        border-top-right-radius: 17px;
+        border-top-left-radius: 17px;
+        padding: 11px;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .popup-header {
+        border-bottom: 1px solid #E7E7E7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 0px 12px 0px;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: black;
+        margin-bottom: 20px;
+    }
+
+    .popup-footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .confirm-button {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        background: #4CBC79;
+        border-radius: 20px;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+
+        color: #FFFFFF;
+        min-height: 42px;
+
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .checkbox-container {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    input[type='radio'] {
+        display: none;
+    }
+
+    label:before {
+        content: " ";
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        margin: 0 1px 0 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 11px;
+        border: 2px solid #4CBC79;
+        background-color: transparent;
+        margin-right: 15px;
+    }
+
+    input[type=radio]:checked+label:after {
+        border-radius: 11px;
+        width: 11px;
+        height: 11px;
+        position: absolute;
+        top: 9px;
+        left: 4px;
+        content: " ";
+        display: block;
+        background: #4CBC79;
+    }
+
+    .confirm-button p {
+        align-self: center;
+        margin-right: 10px;
+    }
+</style>
+
+
+
+<webc-container controller="ChatOptionsPopupController" data-view-model="@">
+    <div class="chat-options">
+        <div class="popup-header">
+            <p>{{@title}}</p>
+            <div class="close-icon" data-tag="close-button">
+                <img src="./AIRobotWidgets/components/assets/small-close.svg">
+            </div>
+        </div>
+        <form>
+            <div class="options-container" data-for="@options">
+                <div class="checkbox-container">
+                    <input class="option-input" type="radio" name="option">
+                    <label class="option">{{@name}}</label>
+                    <!-- <p class="option" align="center">{{@name}}</p> -->
+                </div>
+            </div>
+        </form>
+
+
+        <div class="popup-footer">
+            <div class="confirm-button" data-tag="confirm">
+                <p>{{@buttonText}}</p>
+                <img src="./AIRobotWidgets/components/assets/send-message-white.svg">
+            </div>
+        </div>
+    </div>
+</webc-container>

@@ -9,6 +9,7 @@ import PhotoWithTextController from "./components/photo-with-text/PhotoWithTextC
 import ChatOptionMenuController from "./components/chat-option-menu/ChatOptionMenuController.js";
 import ChatYesNoMenuController from "./components/chat-yes-no-menu/ChatYesNoMenuController.js";
 import CardInfoStripController from "./components/card-info-strip/CardInfoStripController.js";
+import ChatOptionsPopupController from "./components/chat-options-popup/ChatOptionsPopupController.js";
 
 
 let { controllers, components } = window.WebCardinal;
@@ -23,6 +24,7 @@ controllers["PhotoWithTextController"] = PhotoWithTextController;
 controllers["ChatOptionMenuController"] = ChatOptionMenuController;
 controllers["ChatYesNoMenuController"] = ChatYesNoMenuController;
 controllers["CardInfoStripController"] = CardInfoStripController;
+controllers["ChatOptionsPopupController"] = ChatOptionsPopupController;
 
 
 components.define('anchor-card', '/AIRobotWidgets/components/anchor-card/anchor-card');
@@ -36,3 +38,4 @@ components.define('photo-with-text', '/AIRobotWidgets/components/photo-with-text
 components.define('chat-option-menu', '/AIRobotWidgets/components/chat-option-menu/chat-option-menu')
 components.define('chat-yes-no-menu', '/AIRobotWidgets/components/chat-yes-no-menu/chat-yes-no-menu')
 components.define('card-info-strip', '/AIRobotWidgets/components/card-info-strip/card-info-strip')
+components.define('chat-options-popup', '/AIRobotWidgets/components/chat-options-popup/chat-options-popup')
