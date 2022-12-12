@@ -93,6 +93,14 @@ export default class ChatFooterController extends WebcController {
         this.getElementByTag('input').addEventListener("keydown",
             (event) => this.handleKeyPress(event))
 
+        const fileElem = document.getElementById("fileElem");
+        this.onTagClick("add-file", () => {
+            fileElem.click();
+        })
+        fileElem.addEventListener("change", ()=>{
+            const fileList = fileElem.files;
+            this.model.handleFiles(fileList);
+        }, false);
     }
 
     initCarouselListeners() {
