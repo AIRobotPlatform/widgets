@@ -1,0 +1,85 @@
+<style>
+    .chat-options {
+        width: 100%;
+        background: #FFFFFF;
+        border-top-right-radius: 17px;
+        border-top-left-radius: 17px;
+        padding: 11px;
+        position: absolute;
+        bottom: 0px;
+        z-index: 1000;
+    }
+
+    .popup-header {
+        border-bottom: 1px solid #E7E7E7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 0px 12px 0px;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: black;
+        margin-bottom: 20px;
+    }
+
+    .popup-footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .options-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .option-wrapper {
+        position: relative;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .option-wrapper .content-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .content-wrapper img{
+        padding-right: 14px;
+    }
+
+    .option-wrapper .arrow{
+        padding: 0px 5px;
+    }
+
+</style>
+
+
+
+<webc-container controller="PopupMenuController" data-view-model="@">
+    <div class="chat-options">
+        <div class="popup-header">
+            <p>{{@title}}</p>
+            <div class="close-icon" data-tag="close-button">
+                <img src="./AIRobotWidgets/components/assets/small-close.svg">
+            </div>
+        </div>
+        <div class="options-container" data-for="@options">
+            <div class="option-wrapper">
+                <div class="content-wrapper">
+                    <img data-view-model="@icon">
+                    <p class="option">{{@name}}</p>
+                </div>
+                <img class="arrow" src="./AIRobotWidgets/components/assets/menu-arrow.svg">
+            </div>
+        </div>
+    </div>
+</webc-container>

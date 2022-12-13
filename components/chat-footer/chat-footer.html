@@ -197,6 +197,10 @@
     .chat-footer .hidden {
         display: none !important;
     }
+    
+    .menu-container {
+        z-index: 1000;
+    }
 </style>
 
 
@@ -213,6 +217,10 @@
                 </div>
             </div>
         </div> -->
+        <div class="menu-container hidden">
+            <popup-menu data-view-model="@menu"></popup-menu>
+        </div>
+
         <div class="footer">
             <img src="./AIRobotWidgets/components/assets/chat-menu.svg" alt="menu" class="chat-menu"
                 data-tag="open-menu">

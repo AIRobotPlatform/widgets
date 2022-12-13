@@ -14,6 +14,14 @@ export default class ChatFooterController extends WebcController {
         this.sendMessage();
         this.initializeEventListeners();
         // this.initCarouselListeners();
+        this.initMenuEventListeners();
+    }
+
+    initMenuEventListeners(){
+        this.onTagClick("open-menu", ()=>{
+            const element = document.querySelector(".menu-container")
+            element.classList.toggle("hidden");
+        });
 
     }
 

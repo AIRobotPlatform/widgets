@@ -4,7 +4,6 @@ const { WebcController } = WebCardinal.controllers;
 export default class ChatOptionsPopupController extends WebcController {
     constructor(...props) {
         super(...props);
-        console.log(this.model)
         setTimeout(()=>this.init(), 100)
     }
     init(){
