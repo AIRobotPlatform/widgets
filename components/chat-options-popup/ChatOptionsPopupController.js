@@ -4,11 +4,11 @@ const { WebcController } = WebCardinal.controllers;
 export default class ChatOptionsPopupController extends WebcController {
     constructor(...props) {
         super(...props);
-        setTimeout(()=>this.init(), 100)
+        setTimeout(async () => await this.init(), 100)
     }
-    init(){
-        document.querySelectorAll(".option-input").forEach((input, index)=>{
-            if(index == 0){
+    async init() {
+        document.querySelectorAll(".option-input").forEach((input, index) => {
+            if (index == 0) {
                 input.setAttribute("checked", "checked")
             }
             input.setAttribute("id", index);
@@ -16,15 +16,16 @@ export default class ChatOptionsPopupController extends WebcController {
             input.nextElementSibling.setAttribute("for", index);
         })
 
-        const optionsDiv = document.querySelector(".chat-options");
         const messagesHeight = document.querySelector(".main-body").offsetHeight;
-        const height = (messagesHeight - optionsDiv.offsetHeight + 60) + "px";
+        const height = (messagesHeight - 260) + "px";
 
-        this.onTagClick("confirm", () => {
+        this.onTagClick("confirm", async () => {
             const index = parseInt(document.querySelector('input[name="option"]:checked').getAttribute("id"));
             this.model.action(index);
             document.querySelector('.chat-page').style.setProperty('--height', messagesHeight + "px")
+            await document.querySelector("ion-content").scrollToBottom();
         })
         document.querySelector('.chat-page').style.setProperty('--height', height)
+        await document.querySelector("ion-content").scrollToBottom();
     }
 }

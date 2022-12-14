@@ -7,18 +7,17 @@ export default class PopupMenuController extends WebcController {
         setTimeout(() => this.init(), 100)
     }
     init() {
-        document.querySelectorAll(".option-input").forEach((input, index) => {
-            if (index == 0) {
-                input.setAttribute("checked", "checked")
-            }
-            input.setAttribute("id", index);
-            console.log(input.nextSibling)
-            input.nextElementSibling.setAttribute("for", index);
+        document.querySelectorAll(".option-wrapper").forEach((button, index) => {
+            button.addEventListener("click", () => {
+                document.querySelector(".menu-container").classList.toggle("hidden");
+                this.model.options[index].action()
+            });
+
         })
 
         this.onTagClick("close-button", () => {
             document.querySelector(".menu-container").classList.toggle("hidden");
         })
-        
+
     }
 }
