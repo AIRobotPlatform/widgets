@@ -17,11 +17,17 @@ export default class ChatFooterController extends WebcController {
         this.initMenuEventListeners();
     }
 
-    initMenuEventListeners(){
-        this.onTagClick("open-menu", ()=>{
+    initMenuEventListeners() {
+        this.onTagClick("open-menu", () => {
             const element = document.querySelector(".menu-container")
             element.classList.toggle("hidden");
         });
+        const emojiMenu = document.getElementById('emoji-menu');
+        document.onclick = function (e) {
+            if(!emojiMenu.classList.contains("hidden") && e.target.id != "emoji-menu"){
+                emojiMenu.classList.toggle("hidden");
+            }
+        };
 
     }
 
@@ -105,7 +111,7 @@ export default class ChatFooterController extends WebcController {
         this.onTagClick("add-file", () => {
             fileElem.click();
         })
-        fileElem.addEventListener("change", ()=>{
+        fileElem.addEventListener("change", () => {
             const fileList = fileElem.files;
             this.model.handleFiles(fileList);
         }, false);
