@@ -17,6 +17,7 @@ export default class ChatOptionsPopupController extends WebcController {
         })
 
         const messagesHeight = document.querySelector(".main-body").offsetHeight;
+        console.log(messagesHeight, "messages height");
         const height = (messagesHeight - 260) + "px";
 
         this.onTagClick("confirm", async () => {
