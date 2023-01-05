@@ -1,4 +1,18 @@
 <style>
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        webc-datatable {
+            --height: 77vh
+        }
+    }
+
+    @media (min-width: 992px) {
+        webc-datatable {
+            --height: 85vh
+        }
+
+    }
+
+
     .chat-messages .message {
         position: relative;
         border-radius: 11px;
@@ -73,8 +87,8 @@
         display: none;
     } */
 
-</style>
 
+</style>
 
 
 <webc-container controller="ChatMessagesController" data-view-model="@chatMessage">
